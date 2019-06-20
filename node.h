@@ -10,10 +10,9 @@ class Node {
     unsigned int size;
     vector<unsigned int> keys;
     vector<Node<T>*> childs;
-    bool isLeaf;
 
     public: 
-        Node(unsigned int size, bool isLeaf = true) : size(size), isLeaf(isLeaf) {
+        Node(unsigned int size) : size(size) {
             keys.resize(size - 1);
             childs.resize(size);
         }
@@ -23,6 +22,28 @@ class Node {
          * an implement this function
          */
         //virtual bool isLeaf() = 0;
+
+    friend class BTree; 
+};
+
+template <typename T>
+class Internal : public Node {
+    public: 
+        Internal(unsigned int size) : Node::size(size) {
+        }
+        
+        bool isLeaf() { return 0; }
+
+    friend class BTree; 
+};
+
+template <typename T>
+class Leaf : public Node {
+    public: 
+        Internal(unsigned int size) : Node::size(size) {
+        }
+        
+        bool isLeaf() { return 1; }
 
     friend class BTree; 
 };
