@@ -10,7 +10,6 @@ int main(int argc, char *argv[]) {
     b.insert(2, 2);
     b.insert(5, 2);
     b.insert(7, 2);
-    b.insert(8, 9);
     
 
     b.print();
