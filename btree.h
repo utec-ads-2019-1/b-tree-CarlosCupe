@@ -47,8 +47,6 @@ class BTree {
 
             Node<T> *ptr(root), *temp;
             
-            //cout << ptr->getNextDir(k) << endl;
-            
             while (!ptr->isLeaf()) {
                 path.push(ptr);
                 
@@ -85,6 +83,7 @@ class BTree {
         }
 
         ~BTree() {
+            root->deleteRecursive();
         }
 };
 
